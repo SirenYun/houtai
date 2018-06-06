@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.ProductMapper">
+    
+    <insert id="insertProduct">
+    	insert into Product(productName,color,price,size,img) values (#{productName},#{color},#{price},#{size},#{img})
+    </insert>
+    
+    <select id="selectAllProduct" resultType="model.Product">
+    	select * from Product
+    </select>
+    
+    <select id="selectProductByName" parameterType="java.lang.String" resultType="model.Product">
+    	select * from Product where productName like '%${value}%'
+    </select>
+    
+    <select id="deleteProduct" resultType="model.Product">
+    	delete from Product where productId=?
+    </select>
+</mapper>
