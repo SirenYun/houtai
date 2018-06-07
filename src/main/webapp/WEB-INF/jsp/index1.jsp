@@ -126,7 +126,7 @@
 							<ul>
 								<li><a class="submenu" href="queryProduct"><span class="hidden-tablet"> All Products</span></a></li>
 								<li><a class="submenu" href="/houtai/addproduct.jsp"><span class="hidden-tablet"> Add Product</span></a></li>
-								<li><a class="submenu" href="submenu2.html"><span class="hidden-tablet"> Delete Product</span></a></li>
+								<li><a class="submenu" href="/houtai/deleteproduct.jsp"><span class="hidden-tablet"> Delete Product</span></a></li>
 								<li><a class="submenu" href="submenu3.html"><span class="hidden-tablet"> Update Product</span></a></li>
 							</ul>	
 						</li>
@@ -135,7 +135,7 @@
 							<ul>
 								<li><a class="submenu" href="queryOrder"><span class="hidden-tablet"> All Orders</span></a></li>
 								<li><a class="submenu" href="/houtai/addorder.jsp"><span class="hidden-tablet"> Add Order</span></a></li>
-								<li><a class="submenu" href="submenu2.html"><span class="hidden-tablet"> Delete Order</span></a></li>
+								<li><a class="submenu" href="/houtai/deleteorder.jsp"><span class="hidden-tablet"> Delete Order</span></a></li>
 								<li><a class="submenu" href="submenu3.html"><span class="hidden-tablet"> Update Order</span></a></li>
 							</ul>	
 						</li>

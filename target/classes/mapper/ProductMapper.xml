@@ -15,7 +15,7 @@
     	select * from Product where productName like '%${value}%'
     </select>
     
-    <select id="deleteProduct" resultType="model.Product">
-    	delete from Product where productId=?
+    <select id="deleteProduct" >
+    	delete from Product where productId=#{productId}
     </select>
 </mapper>

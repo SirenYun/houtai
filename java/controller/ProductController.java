@@ -58,6 +58,15 @@ public class ProductController {
 		return mv;
 	}
 	
-	
+	 @RequestMapping(value="/deleteProduct")
+	    public ModelAndView deleteProduct(HttpServletRequest request, ModelAndView mv){
+	        Integer productId = Integer.valueOf(request.getParameter("productId"));
+	        //判断id是否为空
+	        ProductDaoImpl impl = new ProductDaoImpl();
+	        	int u = impl.deleteProduct(productId);
+	        //用redirect进行重定向
+	        mv.setViewName("/allproduct");
+	        return mv;
+	    }
 	
 }

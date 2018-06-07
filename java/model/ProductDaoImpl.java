@@ -38,5 +38,14 @@ public class ProductDaoImpl {
 		return lk;
 	}
 	
+	public int deleteProduct(int productId){
+		SqlSession session = sqlSessionFactory.openSession();
+		int u = session.delete("deleteProduct", productId);
+		session.commit();
+		session.close();
+		return u;
+	}
+	
+	
 	
 }
