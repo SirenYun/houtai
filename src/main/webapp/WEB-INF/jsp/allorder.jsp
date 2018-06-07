@@ -388,16 +388,16 @@
            <form action="./searchUser" method="post">
 						    <div class="input-prepend" title="Username">
 								<span class="add-on"><i class="halflings-icon user"></i></span>
-								<input class="input-large span10" name="uname" id="username" type="text" placeholder="type username"/>
+								<input class="input-large span10" name="orderId" id="username" type="text" placeholder="type orderId"/>
 								<div class="button-login">	
 								<button type="submit" class="btn btn-primary">Search</button>
 							    </div>
 							</div>
 							</form>
-							<c:if test="${empty userList }">
-		                                                                       此用户不存在！
+							<c:if test="${empty orderList }">
+		                                                                       此订单不存在！
 	                        </c:if>
-	                        <c:if test="${not empty userList}">
+	                        <c:if test="${not empty orderList}">
 			<div class="row-fluid sortable">	
 				<div class="box span12">
 				
@@ -416,33 +416,33 @@
 						  
 						  </tr>
 							  <tr>
-								  <th>userId</th>
+								  <th>orderId</th>
 								  <th>userName</th>
-								  <th>password</th>
 								  <th>tel</th>
 								  <th>address</th>
 								  <th>code</th>
 								  <th>email</th>
+								  <th>price</th>
 								  <th>Actions</th>
 							  </tr>
 						  </thead>   
-						  <c:forEach items="${userList}" var="t">
+						  <c:forEach items="${orderList}" var="t">
 						  <tbody>
 							
 							<tr>
-								<td class="center"><c:out value="${t.userId}"></c:out></td>
+								<td class="center"><c:out value="${t.orderId}"></c:out></td>
 								<td class="center"><c:out value="${t.userName}"></c:out></td>
-								<td class="center"><c:out value="${t.password}"></c:out></td>
 								<td class="center"><c:out value="${t.tel}"></c:out></td>
 								<td class="center"><c:out value="${t.address}"></c:out></td>
 								<td class="center"><c:out value="${t.code}"></c:out></td>
 								<td class="center"><c:out value="${t.email}"></c:out></td>
+								<td class="center"><c:out value="${t.price}"></c:out></td>
 								<td class="center">
 									
-									<a class="btn btn-info" href="./deleteUser?userId=${t.userId}">
+									<a class="btn btn-info" href="./updateOrder?orderId=${t.orderId}">
 										<i class="halflings-icon white edit"></i>                                            
 									</a>
-									<a class="btn btn-danger" href="./deleteUser?userId=${t.userId}">
+									<a class="btn btn-danger" href="./deleteOrder?orderId=${t.orderId}">
 										<i class="halflings-icon white trash"></i> 
 										
 									</a>

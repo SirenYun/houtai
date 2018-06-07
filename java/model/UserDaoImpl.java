@@ -40,10 +40,7 @@ public class UserDaoImpl {
 	//插入一个用户对象
 	public boolean insertUser(User user){
 		SqlSession session = sqlSessionFactory.openSession();
-		
 		User u = session.selectOne("insertUser", user);
-		
-		//释放资源
 		session.commit();
 		session.close();
 		return true;
@@ -61,9 +58,12 @@ public class UserDaoImpl {
 
 	public int deleteUser(int userId){
 		SqlSession session = sqlSessionFactory.openSession();
-		int i = session.delete("deleteUser", userId);
+		int u = session.delete("deleteUser", userId);
 		session.commit();
 		session.close();
-		return i;
+		return u;
 	}
+	
+	
+	
 }

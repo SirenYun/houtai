@@ -18,7 +18,35 @@
     	select * from user where userName like '%${value}%'
     </select>
     
-    <select id="deleteUser" resultType="model.User">
-    	delete from user where userId=?
+    <select id="deleteUser">
+    	delete from user where userId=#{userId}
     </select>
+    
+    <select id="updateUser" parameterType="java.lang.String">
+    	update user set 
+         <if test="userName!=null">
+             userName = #{userName},
+         </if>
+         <if test="password!=null">
+             password = #{password},
+         </if>
+         <if test="tel!=null">
+             tel = #{tel},
+         </if>
+         <if test="address!=null">
+             address = #{address},
+         </if>
+         <if test= "code!=null">
+            code = #{code},
+         </if>
+         <if test= "email!=null">
+             email = #{email},
+         </if>
+          userId=#{userId} Where userId=#{userId}
+    </select>
+    
+    <select id="selectUserById" parameterType="java.lang.String" resultType="model.User">
+    	select * from user where where userId=#{userId}
+    </select>
+    
 </mapper>

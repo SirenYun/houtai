@@ -380,29 +380,21 @@
 			<ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
-					<a href="index.html">Home</a> 
-					<i class="icon-angle-right"></i>
+					<a href="index.html">Home</a>
+					<i class="icon-angle-right"></i> 
 				</li>
-				<li><a href="#">Tables</a></li>
+				<li>
+					<i class="icon-edit"></i>
+					<a href="#">Forms</a>
+				</li>
 			</ul>
-           <form action="./searchUser" method="post">
-						    <div class="input-prepend" title="Username">
-								<span class="add-on"><i class="halflings-icon user"></i></span>
-								<input class="input-large span10" name="uname" id="username" type="text" placeholder="type username"/>
-								<div class="button-login">	
-								<button type="submit" class="btn btn-primary">Search</button>
-							    </div>
-							</div>
-							</form>
-							<c:if test="${empty userList }">
-		                                                                       此用户不存在！
-	                        </c:if>
-	                        <c:if test="${not empty userList}">
-			<div class="row-fluid sortable">	
+			
+
+
+			<div class="row-fluid sortable">
 				<div class="box span12">
-				
 					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon white user"></i><span class="break"></span>Members</h2>
+						<h2><i class="halflings-icon white edit"></i><span class="break"></span>insert user</h2>
 						<div class="box-icon">
 							<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
 							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
@@ -410,53 +402,64 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<table class="table table-striped table-bordered bootstrap-datatable datatable">
-						  <thead>
-						  <tr>
-						  
-						  </tr>
-							  <tr>
-								  <th>userId</th>
-								  <th>userName</th>
-								  <th>password</th>
-								  <th>tel</th>
-								  <th>address</th>
-								  <th>code</th>
-								  <th>email</th>
-								  <th>Actions</th>
-							  </tr>
-						  </thead>   
-						  <c:forEach items="${userList}" var="t">
-						  <tbody>
-							
-							<tr>
-								<td class="center"><c:out value="${t.userId}"></c:out></td>
-								<td class="center"><c:out value="${t.userName}"></c:out></td>
-								<td class="center"><c:out value="${t.password}"></c:out></td>
-								<td class="center"><c:out value="${t.tel}"></c:out></td>
-								<td class="center"><c:out value="${t.address}"></c:out></td>
-								<td class="center"><c:out value="${t.code}"></c:out></td>
-								<td class="center"><c:out value="${t.email}"></c:out></td>
-								<td class="center">
-									
-									<a class="btn btn-info" href="./deleteUser?userId=${t.userId}">
-										<i class="halflings-icon white edit"></i>                                            
-									</a>
-									<a class="btn btn-danger" href="./deleteUser?userId=${t.userId}">
-										<i class="halflings-icon white trash"></i> 
-										
-									</a>
-								</td>
-							</tr>
-						  </tbody>
-						  </c:forEach> 
-					  </table>            
+					<c:forEach items="${userList}" var="t">
+						<form class="form-horizontal" action="./updateUser" method="post">
+							<fieldset>
+							  <div class="control-group warning">
+								<label class="control-label" for="inputWarning">Id</label>
+								<div class="controls">
+								  <input type="text" id="inputWarning"name="userId" value="${t.userId}">
+								</div>
+							  </div>
+							  <div class="control-group warning">
+								<label class="control-label" for="inputWarning">用户名</label>
+								<div class="controls">
+								  <input type="text" id="inputWarning"name="userName" value="${t.userName}">
+								</div>
+							  </div>
+							  <div class="control-group warning">
+								<label class="control-label" for="inputWarning">密码</label>
+								<div class="controls">
+								  <input type="text" id="inputWarning"name="password" value="${t.password}">
+								</div>
+							  </div>
+							  <div class="control-group warning">
+								<label class="control-label" for="inputWarning">电话号码</label>
+								<div class="controls">
+								  <input type="text" id="inputWarning"name="tel" value="${t.tel}">
+								</div>
+							  </div>
+							  <div class="control-group warning">
+								<label class="control-label" for="inputWarning">地址</label>
+								<div class="controls">
+								  <input type="text" id="inputWarning"name="address" value="${t.address}">
+								</div>
+							  </div>
+							  <div class="control-group warning">
+								<label class="control-label" for="inputWarning">邮编</label>
+								<div class="controls">
+								  <input type="text" id="inputWarning"name="code" value="${t.code}">
+								</div>
+							  </div>
+							  <div class="control-group warning">
+								<label class="control-label" for="inputWarning">邮箱</label>
+								<div class="controls">
+								  <input type="text" id="inputWarning"name="email" value="${t.email}">
+								</div>
+							  </div>
+							  
+							  <div class="form-actions">
+								<button type="submit" class="btn btn-primary">Update One</button>
+								
+							  </div>
+							</fieldset>
+						  </form>
+					</c:forEach> 
 					</div>
 				</div><!--/span-->
 			
-			</div><!--/row-->
-</c:if>
-			
+    
+
 	</div><!--/.fluid-container-->
 	
 			<!-- end: Content -->
@@ -476,18 +479,15 @@
 			<a href="#" class="btn btn-primary">Save changes</a>
 		</div>
 	</div>
-	<div class="common-modal modal fade" id="common-Modal1" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-content">
-			<ul class="list-inline item-details">
-				<li><a href="#">Admin templates</a></li>
-				<li><a href="http://themescloud.org">Bootstrap themes</a></li>
-			</ul>
-		</div>
-	</div>
+	
 	<div class="clearfix"></div>
 	
 	<footer>
 
+		<p>
+			<span style="text-align:left;float:left">&copy; 2013 <a href="downloads/janux-free-responsive-admin-dashboard-template/" alt="Bootstrap_Metro_Dashboard">JANUX Responsive Dashboard</a></span>
+			
+		</p>
 
 	</footer>
 	

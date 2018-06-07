@@ -442,7 +442,7 @@
 									<a class="btn btn-info" href="#">
 										<i class="halflings-icon white edit"></i>                                            
 									</a>
-									<a class="btn btn-danger" href="#">
+									<a class="btn btn-danger" href="./deleteUser?userId=${t.userId}">
 										<i class="halflings-icon white trash"></i> 
 										
 									</a>

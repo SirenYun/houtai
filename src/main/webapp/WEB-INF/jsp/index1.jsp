@@ -117,8 +117,8 @@
 							<ul>
 							    <li><a class="submenu" href="queryUser"><span class="hidden-tablet"> All Users</span></a></li>
 								<li><a class="submenu" href="/houtai/insert.jsp"><span class="hidden-tablet"> Add User</span></a></li>
-								<li><a class="submenu" href="submenu2.html"><span class="hidden-tablet"> Delete User</span></a></li>
-								<li><a class="submenu" href="submenu3.html"><span class="hidden-tablet"> Update User</span></a></li>
+								<li><a class="submenu" href="/houtai/deleteuser.jsp"><span class="hidden-tablet"> Delete User</span></a></li>
+								<li><a class="submenu" href="/houtai/updateuser.jsp"><span class="hidden-tablet"> Update User</span></a></li>
 							</ul>	
 						</li>
 						<li>

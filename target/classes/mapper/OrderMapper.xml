@@ -4,18 +4,18 @@
 <mapper namespace="mapper.OrderMapper">
     
     <insert id="insertOrder">
-    	insert into order(userName,tel,address,code,email,price) values (#{userName},#{tel},#{address},#{code},#{email},#{price})
+    	insert into orders(userName,tel,address,code,email,price) values (#{userName},#{tel},#{address},#{code},#{email},#{price})
     </insert>
     
     <select id="selectAllOrder" resultType="model.Order">
-    	select * from order
+    	select * from orders
     </select>
     
     <select id="selectOrderById" parameterType="java.lang.String" resultType="model.Order">
-    	select * from order where orderId=?
+    	select * from orders where orderId=?
     </select>
     
     <select id="deleteOrder" resultType="model.Order">
-    	delete from order where orderId=?
+    	delete from orders where orderId=?
     </select>
 </mapper>

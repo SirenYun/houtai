@@ -89,12 +89,16 @@ public class UserController {
     public ModelAndView deleteUser(HttpServletRequest request, ModelAndView mv){
         Integer userId = Integer.valueOf(request.getParameter("userId"));
         //判断id是否为空
-        	UserDaoImpl impl= new UserDaoImpl();
-        	int i = impl.deleteUser(userId);
+        	UserDaoImpl impl = new UserDaoImpl();
+        	int u = impl.deleteUser(userId);
         //用redirect进行重定向
         mv.setViewName("/alluser");
         return mv;
     }
+    
+    
+    
+    
 }  
 	
 

@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -37,6 +39,14 @@ public class OrderController {
 		return mv;
 	}
 	
-	
+	@RequestMapping("/queryOrder")
+	public ModelAndView queryUser() throws Exception{
+		OrderDaoImpl impl= new OrderDaoImpl();
+		List<Order> orderList = impl.getAll();
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/allorder");
+		mv.addObject("orderList",orderList);
+		return mv;
+	}
 	
 }

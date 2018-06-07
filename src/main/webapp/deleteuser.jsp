@@ -385,77 +385,17 @@
 				</li>
 				<li><a href="#">Tables</a></li>
 			</ul>
-           <form action="./searchUser" method="post">
-						    <div class="input-prepend" title="Username">
-								<span class="add-on"><i class="halflings-icon user"></i></span>
-								<input class="input-large span10" name="uname" id="username" type="text" placeholder="type username"/>
+           <form action="./deleteUser" method="post" align="center" width="50%">
+						    <div class="input-prepend" title="Username" >
+								<span class="add-on"><i class="halflings-icon user" ></i></span>
+								<input class="input-large span10" name="userId" id="username" type="text" placeholder="输入id"/>
 								<div class="button-login">	
-								<button type="submit" class="btn btn-primary">Search</button>
+								<button type="submit" class="btn btn-primary">Delete</button>
 							    </div>
 							</div>
 							</form>
-							<c:if test="${empty userList }">
-		                                                                       此用户不存在！
-	                        </c:if>
-	                        <c:if test="${not empty userList}">
-			<div class="row-fluid sortable">	
-				<div class="box span12">
-				
-					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon white user"></i><span class="break"></span>Members</h2>
-						<div class="box-icon">
-							<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
-							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
-							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
-						</div>
-					</div>
-					<div class="box-content">
-						<table class="table table-striped table-bordered bootstrap-datatable datatable">
-						  <thead>
-						  <tr>
-						  
-						  </tr>
-							  <tr>
-								  <th>userId</th>
-								  <th>userName</th>
-								  <th>password</th>
-								  <th>tel</th>
-								  <th>address</th>
-								  <th>code</th>
-								  <th>email</th>
-								  <th>Actions</th>
-							  </tr>
-						  </thead>   
-						  <c:forEach items="${userList}" var="t">
-						  <tbody>
 							
-							<tr>
-								<td class="center"><c:out value="${t.userId}"></c:out></td>
-								<td class="center"><c:out value="${t.userName}"></c:out></td>
-								<td class="center"><c:out value="${t.password}"></c:out></td>
-								<td class="center"><c:out value="${t.tel}"></c:out></td>
-								<td class="center"><c:out value="${t.address}"></c:out></td>
-								<td class="center"><c:out value="${t.code}"></c:out></td>
-								<td class="center"><c:out value="${t.email}"></c:out></td>
-								<td class="center">
-									
-									<a class="btn btn-info" href="./deleteUser?userId=${t.userId}">
-										<i class="halflings-icon white edit"></i>                                            
-									</a>
-									<a class="btn btn-danger" href="./deleteUser?userId=${t.userId}">
-										<i class="halflings-icon white trash"></i> 
-										
-									</a>
-								</td>
-							</tr>
-						  </tbody>
-						  </c:forEach> 
-					  </table>            
-					</div>
-				</div><!--/span-->
 			
-			</div><!--/row-->
-</c:if>
 			
 	</div><!--/.fluid-container-->
 	
