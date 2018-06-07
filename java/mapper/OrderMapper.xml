@@ -11,11 +11,11 @@
     	select * from orders
     </select>
     
-    <select id="selectOrderById" parameterType="java.lang.String" resultType="model.Order">
-    	select * from orders where orderId=?
+    <select id="selectOrderById" resultType="model.Order">
+    	select * from orders where orderId = #{orderId}
     </select>
     
     <select id="deleteOrder" resultType="model.Order">
-    	delete from orders where orderId=?
+    	delete from orders where orderId = #{orderId}
     </select>
 </mapper>

@@ -29,8 +29,21 @@ public class OrderDaoImpl {
 		return lk;
 	}
 	
+	public List<Order> selectOrderById(int orderId){
+		SqlSession session = sqlSessionFactory.openSession();
+		List<Order> lk = session.selectList("selectOrderById", orderId);
+		// 该 “selectUserByName”与配置文件中的一个id相匹配。
+		session.commit();
+		session.close();
+		return lk;
+	}
 	
-	
-	
+	public int deleteOrder(int orderId){
+		SqlSession session = sqlSessionFactory.openSession();
+		int o = session.delete("deleteOrder", orderId);
+		session.commit();
+		session.close();
+		return o;
+	}
 	
 }

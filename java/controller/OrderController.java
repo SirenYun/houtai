@@ -49,4 +49,28 @@ public class OrderController {
 		return mv;
 	}
 	
+	@RequestMapping("/searchOrder")
+	public ModelAndView searchUser(HttpServletRequest req) throws Exception{
+		int orderId = Integer.parseInt(req.getParameter("orderId"));
+		OrderDaoImpl impl= new OrderDaoImpl();
+		List<Order> orderList = impl.selectOrderById(orderId);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("searchOrderResult");
+		mv.addObject("orderList",orderList);
+		return mv;
+	}
+	
+	@RequestMapping(value="/deleteOrder")
+    public ModelAndView deleteOrder(HttpServletRequest request, ModelAndView mv){
+        Integer orderId = Integer.valueOf(request.getParameter("orderId"));
+        //判断id是否为空
+        OrderDaoImpl impl = new OrderDaoImpl();
+        	int o = impl.deleteOrder(orderId);
+        //用redirect进行重定向
+        mv.setViewName("/deleteorderok");
+        return mv;
+    }
+	
+	
 }

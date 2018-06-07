@@ -385,7 +385,7 @@
 				</li>
 				<li><a href="#">Tables</a></li>
 			</ul>
-           <form action="./searchUser" method="post">
+           <form action="./searchOrder" method="post">
 						    <div class="input-prepend" title="Username">
 								<span class="add-on"><i class="halflings-icon user"></i></span>
 								<input class="input-large span10" name="orderId" id="username" type="text" placeholder="type orderId"/>
@@ -438,7 +438,9 @@
 								<td class="center"><c:out value="${t.email}"></c:out></td>
 								<td class="center"><c:out value="${t.price}"></c:out></td>
 								<td class="center">
-									
+									<a class="btn btn-success" href="./updateOrder?orderId=${t.orderId}">
+										<i class="halflings-icon white zoom-in"></i>                                            
+									</a>
 									<a class="btn btn-info" href="./updateOrder?orderId=${t.orderId}">
 										<i class="halflings-icon white edit"></i>                                            
 									</a>
