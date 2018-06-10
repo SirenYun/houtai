@@ -438,16 +438,19 @@
 								<td class="center"><c:out value="${t.email}"></c:out></td>
 								<td class="center"><c:out value="${t.price}"></c:out></td>
 								<td class="center">
+									
 									<a class="btn btn-success" href="./updateOrder?orderId=${t.orderId}">
 										<i class="halflings-icon white zoom-in"></i>                                            
 									</a>
 									<a class="btn btn-info" href="./updateOrder?orderId=${t.orderId}">
-										<i class="halflings-icon white edit"></i>                                            
+										<i class="halflings-icon white pencil"></i>                                            
 									</a>
 									<a class="btn btn-danger" href="./deleteOrder?orderId=${t.orderId}">
 										<i class="halflings-icon white trash"></i> 
 										
 									</a>
+									
+									
 								</td>
 							</tr>
 						  </tbody>
