@@ -18,4 +18,17 @@
     <select id="deleteProduct" >
     	delete from Product where productId=#{productId}
     </select>
+    
+    <select id="selectProductById"  resultType="model.Product">
+    	select * from Product where productId=#{productId}
+    </select>
+    
+    <select id="updateProduct" resultType="model.Product">
+    	update Product set productName=#{productName},color=#{color},price=#{price},size=#{size},img=#{img} where productId=#{productId}
+    </select>
+    
+    <select id="productorder"  resultType="model.Product">
+    	select * from Product where productId=#{productId}
+    </select>
+    
 </mapper>

@@ -72,5 +72,40 @@ public class OrderController {
         return mv;
     }
 	
+	@RequestMapping("/updateOrder")
+	public ModelAndView updateOrder(HttpServletRequest req) throws Exception{
+    	int orderId = Integer.parseInt(req.getParameter("orderId"));
+		String userName = req.getParameter("uname");
+		String tel = req.getParameter("tel");
+		String address = req.getParameter("address");
+		String code = req.getParameter("code");
+		String email = req.getParameter("email");
+		Float price = Float.parseFloat(req.getParameter("price"));
+		Order order = new Order();
+		order.setOrderId(orderId);
+		order.setUserName(userName);
+		order.setTel(tel);
+		order.setAddress(address);
+		order.setCode(code);
+		order.setEmail(email);
+		order.setPrice(price);
+		OrderDaoImpl impl= new OrderDaoImpl();
+		int u = impl.updateOrder(order);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/updateorderok");
+		return mv;
+	}
+	
+	@RequestMapping("/findOrder")
+	public ModelAndView findOrder(HttpServletRequest req) throws Exception{
+		int orderId = Integer.parseInt(req.getParameter("orderId"));
+		OrderDaoImpl impl= new OrderDaoImpl();
+		List<Order> orderList = impl.findOrder(orderId);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("updateorder");
+		mv.addObject("orderList",orderList);
+		return mv;
+	}
 	
 }

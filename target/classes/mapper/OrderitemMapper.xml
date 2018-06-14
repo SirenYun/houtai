@@ -4,14 +4,23 @@
 <mapper namespace="mapper.OrderitemMapper">
     
     <insert id="insertOrderitem">
-    	insert into orderitems(orderId,productId,productName,size,count,price) values (#{orderId},#{productId},#{productName},#{size},#{count},#{price})
+    	insert into orderitem(orderId,productId,productName,size,count,price) values (#{orderId},#{productId},#{productName},#{size},#{count},#{price})
     </insert>
     
-    <select id="selectOrderitemById" resultType="model.Order">
+    <select id="selectOrderitemById" resultType="model.Orderitem">
     	select * from orderitem where orderId = #{orderId}
     </select>
     
-    <select id="deleteOrderitem" resultType="model.Order">
+    <select id="deleteOrderitem" resultType="model.Orderitem">
     	delete from orderitem where orderitemId = #{orderitemId}
     </select>
+    
+    <select id="findupdate" resultType="model.Orderitem">
+    	select * from orderitem where orderitemId = #{orderitemId}
+    </select>
+    
+    <select id="updatedetail" resultType="model.Orderitem">
+    	update orderitem set orderId=#{orderId},productId=#{productId},productName=#{productName},size=#{size},count=#{count},price=#{price} where orderitemId=#{orderitemId}
+    </select>
+    
 </mapper>

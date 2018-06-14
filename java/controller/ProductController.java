@@ -69,4 +69,49 @@ public class ProductController {
 	        return mv;
 	    }
 	
+	 @RequestMapping("/selectProductById")
+		public ModelAndView findProduct(HttpServletRequest req) throws Exception{
+			int productId = Integer.parseInt(req.getParameter("productId"));
+			ProductDaoImpl impl= new ProductDaoImpl();
+			List<Product> productList = impl.selectProductById(productId);
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("updateproduct");
+			mv.addObject("productList",productList);
+			return mv;
+		}
+	    
+	    @RequestMapping("/updateProduct")
+		public ModelAndView updateProduct(HttpServletRequest req) throws Exception{
+	    	int productId = Integer.parseInt(req.getParameter("productId"));
+			String productName = req.getParameter("productName");
+			String color = req.getParameter("color");
+			Float price = Float.parseFloat(req.getParameter("price"));
+			String size = req.getParameter("size");
+			String img = req.getParameter("img");
+			Product product = new Product();
+			product.setProductId(productId);
+			product.setProductName(productName);
+			product.setColor(color);
+			product.setPrice(price);
+			product.setSize(size);
+			product.setImg(img);
+			ProductDaoImpl impl= new ProductDaoImpl();
+			int u = impl.updateProduct(product);
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("/updateproductok");
+			return mv;
+		}
+	 
+	    @RequestMapping("/productorder")
+		public ModelAndView productorder(HttpServletRequest req) throws Exception{
+			int productId = Integer.parseInt(req.getParameter("productId"));
+			ProductDaoImpl impl= new ProductDaoImpl();
+			List<Product> productList = impl.productorder(productId);
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("addorderitem");
+			mv.addObject("productList",productList);
+			return mv;
+		}
+	    
+	    
 }

@@ -46,6 +46,30 @@ public class ProductDaoImpl {
 		return u;
 	}
 	
+	public List<Product> selectProductById(int productId){
+		SqlSession session = sqlSessionFactory.openSession();
+		List<Product> lk = session.selectList("selectProductById", productId);
+		// 该 “selectUserByName”与配置文件中的一个id相匹配。
+		session.commit();
+		session.close();
+		return lk;
+	}
 	
+	public int updateProduct(Product product){
+		SqlSession session = sqlSessionFactory.openSession();
+		int u = session.update("updateProduct", product);
+		session.commit();
+		session.close();
+		return u;
+	}
+	
+	public List<Product> productorder(int productId){
+		SqlSession session = sqlSessionFactory.openSession();
+		List<Product> lk = session.selectList("productorder", productId);
+		// 该 “selectUserByName”与配置文件中的一个id相匹配。
+		session.commit();
+		session.close();
+		return lk;
+	}
 	
 }

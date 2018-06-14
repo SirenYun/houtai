@@ -63,10 +63,8 @@ public class UserController {
 		user.setAddress(address);
 		user.setCode(code);
 		user.setEmail(email);
-		
 		UserDaoImpl impl= new UserDaoImpl();
 		boolean u = impl.insertUser(user);
-		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/insertuserok");
 		return mv;
@@ -77,7 +75,6 @@ public class UserController {
 		String userName = req.getParameter("uname");
 		UserDaoImpl impl= new UserDaoImpl();
 		List<User> userList = impl.selectUserByName(userName);
-		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("searchResult");
 		mv.addObject("userList",userList);
@@ -96,7 +93,51 @@ public class UserController {
         return mv;
     }
     
+    @RequestMapping("/selectUserById")
+	public ModelAndView findUser(HttpServletRequest req) throws Exception{
+		int userId = Integer.parseInt(req.getParameter("userId"));
+		UserDaoImpl impl= new UserDaoImpl();
+		List<User> userList = impl.selectUserById(userId);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("updateuser");
+		mv.addObject("userList",userList);
+		return mv;
+	}
     
+    @RequestMapping("/updateUser")
+	public ModelAndView updateUser(HttpServletRequest req) throws Exception{
+    	int userId = Integer.parseInt(req.getParameter("userId"));
+		String userName = req.getParameter("uname");
+		String password = req.getParameter("password");
+		String tel = req.getParameter("tel");
+		String address = req.getParameter("address");
+		String code = req.getParameter("code");
+		String email = req.getParameter("email");
+		User user = new User();
+		user.setUserId(userId);
+		user.setUserName(userName);
+		user.setPassword(password);
+		user.setTel(tel);
+		user.setAddress(address);
+		user.setCode(code);
+		user.setEmail(email);
+		UserDaoImpl impl= new UserDaoImpl();
+		int u = impl.updateUser(user);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/updateuserok");
+		return mv;
+	}
+    
+    @RequestMapping("/userorder")
+	public ModelAndView userorder(HttpServletRequest req) throws Exception{
+		int userId = Integer.parseInt(req.getParameter("userId"));
+		UserDaoImpl impl= new UserDaoImpl();
+		List<User> userList = impl.userorder(userId);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("addorder");
+		mv.addObject("userList",userList);
+		return mv;
+	}
     
     
 }  

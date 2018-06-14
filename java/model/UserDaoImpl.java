@@ -64,6 +64,30 @@ public class UserDaoImpl {
 		return u;
 	}
 	
+	public int updateUser(User user){
+		SqlSession session = sqlSessionFactory.openSession();
+		int u = session.update("updateUser", user);
+		session.commit();
+		session.close();
+		return u;
+	}
 	
+	public List<User> selectUserById(int userId){
+		SqlSession session = sqlSessionFactory.openSession();
+		List<User> lk = session.selectList("selectUserById", userId);
+		// 该 “selectUserByName”与配置文件中的一个id相匹配。
+		session.commit();
+		session.close();
+		return lk;
+	}
+
+	public List<User> userorder(int userId){
+		SqlSession session = sqlSessionFactory.openSession();
+		List<User> lk = session.selectList("userorder", userId);
+		// 该 “selectUserByName”与配置文件中的一个id相匹配。
+		session.commit();
+		session.close();
+		return lk;
+	}
 	
 }

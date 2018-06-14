@@ -61,25 +61,7 @@
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">
 					<ul class="nav pull-right">
-						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="icon-bell"></i>
-								
-							</a>
-						</li>
-						<!-- start: Notifications Dropdown -->
-						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="icon-calendar"></i>
-							</a>
-						</li>
-						<!-- end: Notifications Dropdown -->
-						<!-- start: Message Dropdown -->
-						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="icon-envelope"></i>
-							</a>
-						</li>
+						
 						
 						<!-- start: User Dropdown -->
 						<li class="dropdown">
@@ -118,7 +100,7 @@
 							    <li><a class="submenu" href="queryUser"><span class="hidden-tablet"> All Users</span></a></li>
 								<li><a class="submenu" href="/houtai/insert.jsp"><span class="hidden-tablet"> Add User</span></a></li>
 								<li><a class="submenu" href="/houtai/deleteuser.jsp"><span class="hidden-tablet"> Delete User</span></a></li>
-								<li><a class="submenu" href="/houtai/updateuser.jsp"><span class="hidden-tablet"> Update User</span></a></li>
+								
 							</ul>	
 						</li>
 						<li>
@@ -127,16 +109,16 @@
 								<li><a class="submenu" href="queryProduct"><span class="hidden-tablet"> All Products</span></a></li>
 								<li><a class="submenu" href="/houtai/addproduct.jsp"><span class="hidden-tablet"> Add Product</span></a></li>
 								<li><a class="submenu" href="/houtai/deleteproduct.jsp"><span class="hidden-tablet"> Delete Product</span></a></li>
-								<li><a class="submenu" href="submenu3.html"><span class="hidden-tablet"> Update Product</span></a></li>
+								
 							</ul>	
 						</li>
 						<li>
 							<a class="dropmenu" href="#"><span class="hidden-tablet"> Orders</span></a>
 							<ul>
 								<li><a class="submenu" href="queryOrder"><span class="hidden-tablet"> All Orders</span></a></li>
-								<li><a class="submenu" href="/houtai/addorder.jsp"><span class="hidden-tablet"> Add Order</span></a></li>
+								<li><a class="submenu" href="/houtai/userorder.jsp"><span class="hidden-tablet"> Add Order</span></a></li>
 								<li><a class="submenu" href="/houtai/deleteorder.jsp"><span class="hidden-tablet"> Delete Order</span></a></li>
-								<li><a class="submenu" href="submenu3.html"><span class="hidden-tablet"> Update Order</span></a></li>
+								
 							</ul>	
 						</li>
 					
@@ -154,24 +136,17 @@
 			
 			<!-- start: Content -->
 			<div id="content" class="span10">
-			
-			
 			<ul class="breadcrumb">
 				<li>
-					<i class="icon-home"></i>
-					<a href="index.html">Home</a> 
-					<i class="icon-angle-right"></i>
+					<a href="#">Home</a> 
 				</li>
-				<li><a href="#">Dashboard</a></li>
 			</ul>
-
 			 <div class="control-group warning" style=" text-align:center;" line-height: 200px;>
 								<label class="control-label" for="inputWarning" >
 								<p><font size="7">
 								Welcome~~Administrator
 								</font></p>
 								</label>
-								
 							  </div>
 
 	</div><!--/.fluid-container-->

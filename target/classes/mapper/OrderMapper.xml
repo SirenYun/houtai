@@ -18,4 +18,13 @@
     <select id="deleteOrder" resultType="model.Order">
     	delete from orders where orderId = #{orderId}
     </select>
+    
+    <select id="updateOrder" resultType="model.Order">
+    	update orders set userName=#{userName},tel=#{tel},address=#{address},code=#{code},email=#{email},price=#{price} where orderId=#{orderId}
+    </select>
+    
+    <select id="findOrder" resultType="model.Order">
+    	select * from orders where orderId = #{orderId}
+    </select>
+    
 </mapper>
